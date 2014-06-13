@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="90">
+  <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
+    <df root="." name="0">
+      <in>codgen.c</in>
+      <in>driver.c</in>
+      <in>driver.s</in>
+      <in>genasm.c</in>
+      <in>graph1-gcc.s</in>
+      <in>graph1.c</in>
+      <in>graph1.s</in>
+      <in>halves.c</in>
+      <in>instvars.c</in>
+      <in>lex.yy.c</in>
+      <in>lex1.c</in>
+      <in>lex2.l</in>
+      <in>lexan.l</in>
+      <in>lexanc.c</in>
+      <in>lexandr.c</in>
+      <in>lexanl.c</in>
+      <in>lexasu.l</in>
+      <in>newfile.c</in>
+      <in>number.c</in>
+      <in>opprec.c</in>
+      <in>pars1.c</in>
+      <in>pars1.tab.c</in>
+      <in>pars1.y</in>
+      <in>pars1c.c</in>
+      <in>parsc.c</in>
+      <in>parse.y</in>
+      <in>pasrec-gcc.s</in>
+      <in>pasrec.c</in>
+      <in>pasrec.s</in>
+      <in>pprint.c</in>
+      <in>printtoken.c</in>
+      <in>scanner.c</in>
+      <in>simcalc.y</in>
+      <in>subst.c</in>
+      <in>symtab.c</in>
+      <in>triv.c</in>
+      <in>triv.s</in>
+      <in>trivb.s</in>
+      <in>y.tab.c</in>
+    </df>
+    <logicalFolder name="ExternalFiles"
+                   displayName="Important Files"
+                   projectFiles="false"
+                   kind="IMPORTANT_FILES_FOLDER">
+      <itemPath>makefile</itemPath>
+    </logicalFolder>
+  </logicalFolder>
+  <sourceFolderFilter>^(nbproject)$</sourceFolderFilter>
+  <sourceRootList>
+    <Elem>.</Elem>
+  </sourceRootList>
+  <projectmakefile>makefile</projectmakefile>
+  <confs>
+    <conf name="Default" type="0">
+      <toolsSet>
+        <compilerSet>default</compilerSet>
+        <dependencyChecking>false</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <codeAssistance>
+      </codeAssistance>
+      <makefileType>
+        <makeTool>
+          <buildCommandWorkingDir></buildCommandWorkingDir>
+          <buildCommand>${MAKE} -f Makefile</buildCommand>
+          <cleanCommand>${MAKE} -f Makefile clean</cleanCommand>
+          <executablePath></executablePath>
+        </makeTool>
+      </makefileType>
+      <item path="codgen.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="driver.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="driver.s" ex="false" tool="4" flavor2="0">
+      </item>
+      <item path="genasm.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="graph1-gcc.s" ex="false" tool="4" flavor2="0">
+      </item>
+      <item path="graph1.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="graph1.s" ex="false" tool="4" flavor2="0">
+      </item>
+      <item path="halves.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="instvars.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="lex.yy.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="lex1.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="lex2.l" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="lexan.l" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="lexanc.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="lexandr.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="lexanl.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="lexasu.l" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="newfile.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="number.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="opprec.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="pars1.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="pars1.tab.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="pars1.y" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="pars1c.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="parsc.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="parse.y" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="pasrec-gcc.s" ex="false" tool="4" flavor2="0">
+      </item>
+      <item path="pasrec.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="pasrec.s" ex="false" tool="4" flavor2="0">
+      </item>
+      <item path="pprint.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="printtoken.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="scanner.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="simcalc.y" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="subst.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="symtab.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="triv.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="triv.s" ex="false" tool="4" flavor2="0">
+      </item>
+      <item path="trivb.s" ex="false" tool="4" flavor2="0">
+      </item>
+      <item path="y.tab.c" ex="false" tool="0" flavor2="0">
+      </item>
+    </conf>
+  </confs>
+</configurationDescriptor>

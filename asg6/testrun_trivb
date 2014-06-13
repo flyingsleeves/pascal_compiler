@@ -1,0 +1,6 @@
+#!/bin/bash
+make clean
+make compiler
+compiler < trivb.pas > code.s
+cc driver.c code.s -lm
+a.out

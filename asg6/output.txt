@@ -1,0 +1,405 @@
+instconst
+ ID:
+ token 6631504  ID           red  dtype  0  link 6631632
+ CONSTANT:
+ token 6631888  OP                dtype  0  link 0  operands 0
+instconst
+ ID:
+ token 6631632  ID         white  dtype  0  link 6631760
+ CONSTANT:
+ token 6631888  OP             +  dtype  0  link 0  operands 0
+instconst
+ ID:
+ token 6631760  ID          blue  dtype  0  link 0
+ CONSTANT:
+ token 6631888  OP             -  dtype  0  link 0  operands 0
+instvars
+ 6631216     complex knd 8 0  typ 6631056 lvl 1  siz    16  off     0 lnk 6631952
+instvars
+ 6606960     integer knd 1 0  typ 0 lvl 0  siz     4  off     0 lnk 6607056
+instvars
+ 6637232       array knd 6 0  typ 6631216 lvl 0  siz   160  off     0 lnk 0
+instvars
+ 6638352       array knd 6 0  typ 6638448 lvl 0  siz   120  off     0 lnk 0
+instvars
+ 6633072          pp knd 8 0  typ 6632912 lvl 1  siz     8  off     0 lnk 6635728
+instvars
+ 6640464       array knd 6 0  typ 6632816 lvl 0  siz   960  off     0 lnk 0
+makeintc
+ result:  token 6641040  NUM           48  dtype  0  link 0
+binop
+ token 6641104  OP            :=  dtype  0  link 0  operands 0
+ token 6640912  ID          john  dtype  0  link 0
+ token 6640848  OP       funcall  dtype  0  link 0  operands 6640784
+makeintc
+ result:  token 6641488  NUM           48  dtype  0  link 0
+binop
+ token 6641552  OP            :=  dtype  0  link 0  operands 0
+ token 6641360  ID          mary  dtype  0  link 0
+ token 6641296  OP       funcall  dtype  0  link 0  operands 6641232
+makeintc
+ result:  token 6641936  NUM           48  dtype  0  link 0
+binop
+ token 6642000  OP            :=  dtype  0  link 0  operands 0
+ token 6641808  ID          fred  dtype  0  link 0
+ token 6641744  OP       funcall  dtype  0  link 0  operands 6641680
+fillintc
+ result:  token 6642320  NUM           32  dtype  0  link 0
+fillintc
+ result:  token 6642448  NUM            2  dtype  0  link 0
+binop
+ token 6642384  OP            :=  dtype  0  link 0  operands 0
+ token 6642256  OP          aref  dtype  0  link 0  operands 6642192
+ token 6642448  NUM            2  dtype  0  link 0
+fillintc
+ result:  token 6642768  NUM            0  dtype  0  link 0
+binop
+ token 6642832  OP            :=  dtype  0  link 0  operands 0
+ token 6642704  OP          aref  dtype  0  link 0  operands 6642640
+ token 6642896  NUM           19  dtype  0  link 0
+fillintc
+ result:  token 6643344  NUM            8  dtype  0  link 0
+binop
+ token 6643408  OP            :=  dtype  0  link 0  operands 0
+ token 6643280  OP          aref  dtype  0  link 0  operands 6643216
+ token 6643472  ID          mary  dtype  0  link 0
+fillintc
+ result:  token 6643856  NUM           40  dtype  0  link 0
+binop
+ token 6643920  OP            :=  dtype  0  link 0  operands 0
+ token 6643792  OP          aref  dtype  0  link 0  operands 6643728
+ token 6643984  NUM 4.000000e+04  dtype  1  link 0
+fillintc
+ result:  token 6644304  NUM           16  dtype  0  link 0
+fillintc
+ result:  token 6644432  NUM            0  dtype  0  link 0
+binop
+ token 6644496  OP            :=  dtype  0  link 0  operands 0
+ token 6644240  OP          aref  dtype  0  link 0  operands 6644176
+ token 6644560  NUM            3  dtype  0  link 0
+fillintc
+ result:  token 6644880  NUM            0  dtype  0  link 0
+binop
+ token 6644944  OP            :=  dtype  0  link 0  operands 0
+ token 6644816  OP          aref  dtype  0  link 0  operands 6644752
+ token 6645008  NUM           21  dtype  0  link 0
+fillintc
+ result:  token 6645328  NUM            8  dtype  0  link 0
+binop
+ token 6645392  OP            :=  dtype  0  link 0  operands 0
+ token 6645264  OP          aref  dtype  0  link 0  operands 6645200
+ token 6645456  ID          fred  dtype  0  link 0
+fillintc
+ result:  token 6645904  NUM            0  dtype  0  link 0
+binop
+ token 6645968  OP            :=  dtype  0  link 0  operands 0
+ token 6645840  OP          aref  dtype  0  link 0  operands 6645776
+ token 6646032  NUM           20  dtype  0  link 0
+fillintc
+ result:  token 6646416  NUM            8  dtype  0  link 0
+fillintc
+ result:  token 6646544  NUM            0  dtype  0  link 0
+binop
+ token 6646480  OP            :=  dtype  0  link 0  operands 0
+ token 6646352  OP          aref  dtype  0  link 0  operands 6646288
+ token 6646544  NUM            0  dtype  0  link 0
+fillintc
+ result:  token 6646864  NUM            8  dtype  0  link 0
+fillintc
+ result:  token 6647056  NUM            8  dtype  0  link 0
+fillintc
+ result:  token 6647248  NUM           16  dtype  0  link 0
+fillintc
+ result:  token 6647376  NUM            8  dtype  0  link 0
+binop
+ token 6647440  OP            :=  dtype  0  link 0  operands 0
+ token 6647184  OP          aref  dtype  0  link 0  operands 6647120
+ token 6647504  NUM 4.500000e+00  dtype  1  link 0
+makeintc
+ result:  token 6647952  NUM          -16  dtype  0  link 0
+fillintc
+ result:  token 6648080  NUM            0  dtype  0  link 0
+fillintc
+ result:  token 6648400  NUM           40  dtype  0  link 0
+binop
+ token 6648144  OP            :=  dtype  0  link 0  operands 0
+ token 6647696  OP          aref  dtype  0  link 0  operands 6647632
+ token 6648336  OP          aref  dtype  0  link 0  operands 6648272
+binop
+ token 6648592  OP            :=  dtype  0  link 0  operands 0
+ token 6648528  ID           ptr  dtype  0  link 0
+ token 6648656  ID          john  dtype  0  link 0
+binop
+ token 6648848  OP            :=  dtype  0  link 0  operands 0
+ token 6648784  ID           sum  dtype  0  link 0
+ token 6648912  NUM            0  dtype  0  link 0
+binop
+ token 6649104  OP            :=  dtype  0  link 0  operands 0
+ token 6649040  ID             i  dtype  0  link 0
+ token 6649168  NUM            1  dtype  0  link 0
+fillintc
+ result:  token 6649488  NUM            0  dtype  0  link 0
+binop
+ token 6649424  OP            <>  dtype  0  link 0  operands 0
+ token 6649360  ID           ptr  dtype  0  link 0
+ token 6649488  NUM            0  dtype  0  link 0
+fillintc
+ result:  token 6650128  NUM            0  dtype  0  link 0
+binop
+ token 6649872  OP             +  dtype  0  link 0  operands 0
+ token 6649808  ID           sum  dtype  0  link 0
+ token 6650064  OP          aref  dtype  0  link 0  operands 6650000
+binop
+ token 6649744  OP            :=  dtype  0  link 0  operands 0
+ token 6649680  ID           sum  dtype  0  link 0
+ token 6649872  OP             +  dtype  0  link 0  operands 6649808
+makeintc
+ result:  token 6650576  NUM           48  dtype  0  link 0
+binop
+ token 6650640  OP             *  dtype  0  link 0  operands 0
+ token 6650576  NUM           48  dtype  0  link 0
+ token 6650512  ID             i  dtype  0  link 0
+makeintc
+ result:  token 6650704  NUM          -48  dtype  0  link 0
+binop
+ token 6650768  OP             +  dtype  0  link 0  operands 0
+ token 6650704  NUM          -48  dtype  0  link 0
+ token 6650640  OP             *  dtype  0  link 0  operands 6650576
+fillintc
+ result:  token 6650896  NUM            0  dtype  0  link 0
+fillintc
+ result:  token 6651216  NUM            0  dtype  0  link 0
+binop
+ token 6650960  OP            :=  dtype  0  link 0  operands 0
+ token 6650320  OP          aref  dtype  0  link 0  operands 6650256
+ token 6651152  OP          aref  dtype  0  link 0  operands 6651088
+fillintc
+ result:  token 6651600  NUM            1  dtype  0  link 0
+makeintc
+ result:  token 6651792  NUM           12  dtype  0  link 0
+binop
+ token 6651856  OP             *  dtype  0  link 0  operands 0
+ token 6651792  NUM           12  dtype  0  link 0
+ token 6651728  ID             i  dtype  0  link 0
+makeintc
+ result:  token 6651920  NUM          -12  dtype  0  link 0
+binop
+ token 6651984  OP             +  dtype  0  link 0  operands 0
+ token 6651920  NUM          -12  dtype  0  link 0
+ token 6651856  OP             *  dtype  0  link 0  operands 6651792
+makeintc
+ result:  token 6652048  NUM            4  dtype  0  link 0
+fillintc
+ result:  token 6652368  NUM           32  dtype  0  link 0
+binop
+ token 6652112  OP            :=  dtype  0  link 0  operands 0
+ token 6651408  OP          aref  dtype  0  link 0  operands 6651344
+ token 6652304  OP          aref  dtype  0  link 0  operands 6652240
+fillintc
+ result:  token 6652816  NUM            8  dtype  0  link 0
+binop
+ token 6652560  OP            :=  dtype  0  link 0  operands 0
+ token 6652496  ID           ptr  dtype  0  link 0
+ token 6652752  OP          aref  dtype  0  link 0  operands 6652688
+binop
+ token 6653136  OP             +  dtype  0  link 0  operands 0
+ token 6653072  ID             i  dtype  0  link 0
+ token 6653200  NUM            1  dtype  0  link 0
+binop
+ token 6653008  OP            :=  dtype  0  link 0  operands 0
+ token 6652944  ID             i  dtype  0  link 0
+ token 6653136  OP             +  dtype  0  link 0  operands 6653072
+makeintc
+ result:  token 6653456  NUM            2  dtype  0  link 0
+fillintc
+ result:  token 6655504  NUM           16  dtype  0  link 0
+fillintc
+ result:  token 6655632  NUM            8  dtype  0  link 0
+binop
+ token 6655952  OP             <  dtype  0  link 0  operands 0
+ token 6655888  ID           sum  dtype  0  link 0
+ token 6656016  NUM            3  dtype  0  link 0
+yyparse result =        0
+Symbol table level 0
+ 6606864        real  BASIC  basicdt   1          siz     8
+ 6606960     integer  BASIC  basicdt   0          siz     4
+ 6607056        char  BASIC  basicdt   2          siz     1
+ 6607152     boolean  BASIC  basicdt   3          siz     4
+ 6607248         exp  knd 5 0  typ 6607344  lvl  0  siz     0  off     0
+(FUNCTION real
+          real)
+ 6607536       trexp  knd 5 0  typ 6607632  lvl  0  siz     0  off     0
+(FUNCTION real
+          real)
+ 6607824         sin  knd 5 0  typ 6607920  lvl  0  siz     0  off     0
+(FUNCTION real
+          real)
+ 6608112         cos  knd 5 0  typ 6608208  lvl  0  siz     0  off     0
+(FUNCTION real
+          real)
+ 6608400       trsin  knd 5 0  typ 6608496  lvl  0  siz     0  off     0
+(FUNCTION real
+          real)
+ 6608688        sqrt  knd 5 0  typ 6608784  lvl  0  siz     0  off     0
+(FUNCTION real
+          real)
+ 6608976       round  knd 5 0  typ 6609072  lvl  0  siz     0  off     0
+(FUNCTION real
+          real)
+ 6609264      iround  knd 5 0  typ 6609360  lvl  0  siz     0  off     0
+(FUNCTION integer
+          real)
+ 6609552         ord  knd 5 0  typ 6609648  lvl  0  siz     0  off     0
+(FUNCTION integer
+          integer)
+ 6609840         new  knd 5 0  typ 6609936  lvl  0  siz     0  off     0
+(FUNCTION integer
+          integer)
+ 6610128       trnew  knd 5 0  typ 6610224  lvl  0  siz     0  off     0
+(FUNCTION integer
+          integer)
+ 6610416       write  knd 5 0  typ 6610512  lvl  0  siz     0  off     0
+(FUNCTION NULL
+          char)
+ 6610704     writeln  knd 5 0  typ 6610800  lvl  0  siz     0  off     0
+(FUNCTION NULL
+          char)
+ 6610992      writef  knd 5 0  typ 6611088  lvl  0  siz     0  off     0
+(FUNCTION NULL
+          real)
+ 6611280    writelnf  knd 5 0  typ 6611376  lvl  0  siz     0  off     0
+(FUNCTION NULL
+          real)
+ 6611568      writei  knd 5 0  typ 6611664  lvl  0  siz     0  off     0
+(FUNCTION NULL
+          integer)
+ 6611856    writelni  knd 5 0  typ 6611952  lvl  0  siz     0  off     0
+(FUNCTION NULL
+          integer)
+ 6612144        read  knd 5 0  typ 6612240  lvl  0  siz     0  off     0
+(FUNCTION NULL
+          NULL)
+ 6612432      readln  knd 5 0  typ 6612528  lvl  0  siz     0  off     0
+(FUNCTION NULL
+          NULL)
+ 6612720         eof  knd 5 0  typ 6612816  lvl  0  siz     0  off     0
+(FUNCTION boolean
+          NULL)
+Symbol table level 1
+ 6631216     complex  TYPE   typ 6631056  lvl  1  siz    16  off     0
+(RECORD (re real)
+        (im real))
+ 6631952         red  CONST  typ INTEGER  val  0
+ 6632048       white  CONST  typ INTEGER  val  1
+ 6632144        blue  CONST  typ INTEGER  val  2
+ 6632464       color  TYPE   typ 6632304  lvl  1  siz     4  off     0
+  0 ..   2
+ 6632816      person  TYPE   typ 6635120  lvl  1  siz    48  off     0
+(RECORD (age integer)
+        (friend (^ person))
+        (location (RECORD (re real)
+                          (im real)))
+        (favorite   0 ..   2)
+        (salary real))
+ 6633072          pp  TYPE   typ 6632912  lvl  1  siz     8  off     0
+(^ person)
+ 6635728           c  VAR    0 typ 6631216  lvl  1  siz    16  off     0
+(RECORD (re real)
+        (im real))
+ 6635824           d  VAR    0 typ 6631216  lvl  1  siz    16  off    16
+(RECORD (re real)
+        (im real))
+ 6636304           i  VAR    0 typ integer  lvl  1  siz     4  off    32
+ 6636400         sum  VAR    0 typ integer  lvl  1  siz     4  off    36
+ 6637392          ac  VAR    0 typ 6637232  lvl  1  siz   160  off    48
+(ARRAY   1 ..  10 (RECORD (re real)
+                          (im real)))
+ 6638608         aco  VAR    0 typ 6638352  lvl  1  siz   120  off   208
+(ARRAY   1 ..  10 (ARRAY   0 ..   2   0 ..   2))
+ 6639344        john  VAR    0 typ 6633072  lvl  1  siz     8  off   328
+(^ person)
+ 6639440        mary  VAR    0 typ 6633072  lvl  1  siz     8  off   336
+(^ person)
+ 6639536        fred  VAR    0 typ 6633072  lvl  1  siz     8  off   344
+(^ person)
+ 6639632         ptr  VAR    0 typ 6633072  lvl  1  siz     8  off   352
+(^ person)
+ 6640624      people  VAR    0 typ 6640464  lvl  1  siz   960  off   368
+(ARRAY   1 ..  20 (RECORD (age integer)
+                          (friend (^ person))
+                          (location (RECORD (re real)
+                                            (im real)))
+                          (favorite   0 ..   2)
+                          (salary real)))
+ token 6656400  OP       program  dtype  0  link 0  operands 6629584
+(program graph1 (progn output)
+                (progn (:= john (funcall new 48))
+                       (:= mary (funcall new 48))
+                       (:= fred (funcall new 48))
+                       (:= (aref (^ john)
+                                 32)
+                           2)
+                       (:= (aref (^ john)
+                                 0)
+                           19)
+                       (progn (label 1)
+                              (:= (aref (^ john)
+                                        8)
+                                  mary))
+                       (:= (aref (^ john)
+                                 40)
+                           4.000000e+04)
+                       (:= (aref (^ john)
+                                 16)
+                           3.000000e+00)
+                       (:= (aref (^ mary)
+                                 0)
+                           21)
+                       (:= (aref (^ mary)
+                                 8)
+                           fred)
+                       (progn (label 0)
+                              (:= (aref (^ fred)
+                                        0)
+                                  20))
+                       (:= (aref (^ fred)
+                                 8)
+                           0)
+                       (:= (aref (^ (aref (^ (aref (^ john)
+                                                   8))
+                                          8))
+                                 24)
+                           4.500000e+00)
+                       (:= (aref ac 96)
+                           (aref (^ john)
+                                 40))
+                       (:= ptr john)
+                       (:= sum 0)
+                       (:= i 1)
+                       (progn (label 2)
+                              (if (<> ptr 0)
+                                  (progn (:= sum (+ sum (aref (^ ptr)
+                                                              0)))
+                                         (:= (aref people (+ -48
+                                                             (* 48
+                                                                i)))
+                                             (aref (^ ptr)
+                                                   0))
+                                         (:= (aref aco (+ -8
+                                                          (* 12
+                                                             i)))
+                                             (aref (^ john)
+                                                   32))
+                                         (:= ptr (aref (^ ptr)
+                                                       8))
+                                         (:= i (+ i 1))
+                                         (goto 2))))
+                       (funcall write 'i = ')
+                       (funcall writelni i)
+                       (funcall write 'Sum of ages = ')
+                       (funcall writelni sum)
+                       (funcall write 'Fred loc im = ')
+                       (funcall writelnf (aref (^ fred)
+                                               24))
+                       (if (< sum 3)
+                           (goto 0))))

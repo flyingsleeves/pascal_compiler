@@ -1,0 +1,2216 @@
+Terminals unused in grammar
+
+   NOT
+   DIV
+   CASE
+   FILEFILE
+   FUNCTION
+   PACKED
+   PROCEDURE
+   SET
+   WITH
+
+
+State 23 conflicts: 1 shift/reduce
+State 31 conflicts: 1 shift/reduce
+State 42 conflicts: 1 shift/reduce
+State 80 conflicts: 1 shift/reduce
+State 105 conflicts: 3 shift/reduce
+State 142 conflicts: 1 shift/reduce
+
+
+Grammar
+
+    0 $accept: program $end
+
+    1 program: PROGRAM IDENTIFIER LPAREN identifier_list RPAREN SEMICOLON block DOT
+
+    2 block: lblock cblock tblock vblock statement
+
+    3 lblock: LABEL NUMBER endlabel
+    4       | /* empty */
+
+    5 endlabel: COMMA NUMBER endlabel
+    6         | SEMICOLON
+
+    7 cblock: CONST c_asgn_list
+    8       | /* empty */
+
+    9 c_asgn_list: c_asgn_list c_asgn
+   10            | c_asgn
+
+   11 c_asgn: IDENTIFIER EQ constant SEMICOLON
+
+   12 tblock: TYPE t_asgn_list
+   13       | /* empty */
+
+   14 t_asgn_list: t_asgn_list t_asgn
+   15            | t_asgn
+
+   16 t_asgn: IDENTIFIER EQ type SEMICOLON
+
+   17 type: simple_type
+   18     | POINT IDENTIFIER
+   19     | ARRAY LBRACKET s_type_list RBRACKET OF type
+   20     | RECORD field_list END
+
+   21 simple_type: IDENTIFIER
+   22            | LPAREN identifier_list RPAREN
+   23            | NUMBER DOTDOT NUMBER
+
+   24 s_type_list: simple_type COMMA s_type_list
+   25            | simple_type
+
+   26 field_list: field SEMICOLON field_list
+   27           | field
+
+   28 field: identifier_list COLON type
+
+   29 vblock: VAR v_asgn_list
+   30       | /* empty */
+
+   31 v_asgn_list: v_asgn_list v_asgn
+   32            | v_asgn
+
+   33 v_asgn: identifier_list COLON type SEMICOLON
+
+   34 identifier_list: IDENTIFIER COMMA identifier_list
+   35                | IDENTIFIER
+
+   36 statement: BEGINBEGIN statement endpart
+   37          | NUMBER COLON statement
+   38          | IF expr THEN statement endif
+   39          | REPEAT statement_list UNTIL expr
+   40          | FOR assignment TO expr DO statement
+   41          | FOR assignment TO expr DOWNTO statement
+   42          | WHILE expr DO statement
+   43          | IDENTIFIER LPAREN s_expr RPAREN
+   44          | GOTO NUMBER
+   45          | assignment
+
+   46 endpart: SEMICOLON statement endpart
+   47        | END
+
+   48 statement_list: statement SEMICOLON statement_list
+   49               | statement
+
+   50 endif: ELSE statement
+   51      | /* empty */
+
+   52 assignment: variable ASSIGN expr
+
+   53 expr: s_expr EQ s_expr
+   54     | s_expr LT s_expr
+   55     | s_expr GT s_expr
+   56     | s_expr NE s_expr
+   57     | s_expr LE s_expr
+   58     | s_expr GE s_expr
+   59     | s_expr IN s_expr
+   60     | s_expr
+
+   61 s_expr: MINUS s_expr
+   62       | s_expr PLUS term
+   63       | s_expr MINUS term
+   64       | s_expr OR term
+   65       | term
+
+   66 term: term TIMES factor
+   67     | term DIVIDE factor
+   68     | term MOD factor
+   69     | term AND factor
+   70     | factor
+
+   71 factor: LPAREN expr RPAREN
+   72       | variable
+   73       | IDENTIFIER LPAREN s_expr RPAREN
+   74       | constant
+
+   75 variable: IDENTIFIER
+   76         | variable DOT IDENTIFIER
+   77         | variable POINT
+   78         | variable LBRACKET s_expr_list RBRACKET
+
+   79 s_expr_list: s_expr COMMA s_expr_list
+   80            | s_expr
+
+   81 constant: NUMBER
+   82         | STRING
+   83         | NIL
+
+
+Terminals, with rules where they appear
+
+$end (0) 0
+error (256)
+IDENTIFIER (258) 1 11 16 18 21 34 35 43 73 75 76
+STRING (259) 82
+NUMBER (260) 3 5 23 37 44 81
+PLUS (261) 62
+MINUS (262) 61 63
+TIMES (263) 66
+DIVIDE (264) 67
+ASSIGN (265) 52
+EQ (266) 11 16 53
+NE (267) 56
+LT (268) 54
+LE (269) 57
+GE (270) 58
+GT (271) 55
+POINT (272) 18 77
+DOT (273) 1 76
+AND (274) 69
+OR (275) 64
+NOT (276)
+DIV (277)
+MOD (278) 68
+IN (279) 59
+COMMA (280) 5 24 34 79
+SEMICOLON (281) 1 6 11 16 26 33 46 48
+COLON (282) 28 33 37
+LPAREN (283) 1 22 43 71 73
+RPAREN (284) 1 22 43 71 73
+LBRACKET (285) 19 78
+RBRACKET (286) 19 78
+DOTDOT (287) 23
+ARRAY (288) 19
+BEGINBEGIN (289) 36
+CASE (290)
+CONST (291) 7
+DO (292) 40 42
+DOWNTO (293) 41
+ELSE (294) 50
+END (295) 20 47
+FILEFILE (296)
+FOR (297) 40 41
+FUNCTION (298)
+GOTO (299) 44
+IF (300) 38
+LABEL (301) 3
+NIL (302) 83
+OF (303) 19
+PACKED (304)
+PROCEDURE (305)
+PROGRAM (306) 1
+RECORD (307) 20
+REPEAT (308) 39
+SET (309)
+THEN (310) 38
+TO (311) 40 41
+TYPE (312) 12
+UNTIL (313) 39
+VAR (314) 29
+WHILE (315) 42
+WITH (316)
+
+
+Nonterminals, with rules where they appear
+
+$accept (62)
+    on left: 0
+program (63)
+    on left: 1, on right: 0
+block (64)
+    on left: 2, on right: 1
+lblock (65)
+    on left: 3 4, on right: 2
+endlabel (66)
+    on left: 5 6, on right: 3 5
+cblock (67)
+    on left: 7 8, on right: 2
+c_asgn_list (68)
+    on left: 9 10, on right: 7 9
+c_asgn (69)
+    on left: 11, on right: 9 10
+tblock (70)
+    on left: 12 13, on right: 2
+t_asgn_list (71)
+    on left: 14 15, on right: 12 14
+t_asgn (72)
+    on left: 16, on right: 14 15
+type (73)
+    on left: 17 18 19 20, on right: 16 19 28 33
+simple_type (74)
+    on left: 21 22 23, on right: 17 24 25
+s_type_list (75)
+    on left: 24 25, on right: 19 24
+field_list (76)
+    on left: 26 27, on right: 20 26
+field (77)
+    on left: 28, on right: 26 27
+vblock (78)
+    on left: 29 30, on right: 2
+v_asgn_list (79)
+    on left: 31 32, on right: 29 31
+v_asgn (80)
+    on left: 33, on right: 31 32
+identifier_list (81)
+    on left: 34 35, on right: 1 22 28 33 34
+statement (82)
+    on left: 36 37 38 39 40 41 42 43 44 45, on right: 2 36 37 38 40
+    41 42 46 48 49 50
+endpart (83)
+    on left: 46 47, on right: 36 46
+statement_list (84)
+    on left: 48 49, on right: 39 48
+endif (85)
+    on left: 50 51, on right: 38
+assignment (86)
+    on left: 52, on right: 40 41 45
+expr (87)
+    on left: 53 54 55 56 57 58 59 60, on right: 38 39 40 41 42 52 71
+s_expr (88)
+    on left: 61 62 63 64 65, on right: 43 53 54 55 56 57 58 59 60 61
+    62 63 64 73 79 80
+term (89)
+    on left: 66 67 68 69 70, on right: 62 63 64 65 66 67 68 69
+factor (90)
+    on left: 71 72 73 74, on right: 66 67 68 69 70
+variable (91)
+    on left: 75 76 77 78, on right: 52 72 76 77 78
+s_expr_list (92)
+    on left: 79 80, on right: 78 79
+constant (93)
+    on left: 81 82 83, on right: 11 74
+
+
+state 0
+
+    0 $accept: . program $end
+
+    PROGRAM  shift, and go to state 1
+
+    program  go to state 2
+
+
+state 1
+
+    1 program: PROGRAM . IDENTIFIER LPAREN identifier_list RPAREN SEMICOLON block DOT
+
+    IDENTIFIER  shift, and go to state 3
+
+
+state 2
+
+    0 $accept: program . $end
+
+    $end  shift, and go to state 4
+
+
+state 3
+
+    1 program: PROGRAM IDENTIFIER . LPAREN identifier_list RPAREN SEMICOLON block DOT
+
+    LPAREN  shift, and go to state 5
+
+
+state 4
+
+    0 $accept: program $end .
+
+    $default  accept
+
+
+state 5
+
+    1 program: PROGRAM IDENTIFIER LPAREN . identifier_list RPAREN SEMICOLON block DOT
+
+    IDENTIFIER  shift, and go to state 6
+
+    identifier_list  go to state 7
+
+
+state 6
+
+   34 identifier_list: IDENTIFIER . COMMA identifier_list
+   35                | IDENTIFIER .
+
+    COMMA  shift, and go to state 8
+
+    $default  reduce using rule 35 (identifier_list)
+
+
+state 7
+
+    1 program: PROGRAM IDENTIFIER LPAREN identifier_list . RPAREN SEMICOLON block DOT
+
+    RPAREN  shift, and go to state 9
+
+
+state 8
+
+   34 identifier_list: IDENTIFIER COMMA . identifier_list
+
+    IDENTIFIER  shift, and go to state 6
+
+    identifier_list  go to state 10
+
+
+state 9
+
+    1 program: PROGRAM IDENTIFIER LPAREN identifier_list RPAREN . SEMICOLON block DOT
+
+    SEMICOLON  shift, and go to state 11
+
+
+state 10
+
+   34 identifier_list: IDENTIFIER COMMA identifier_list .
+
+    $default  reduce using rule 34 (identifier_list)
+
+
+state 11
+
+    1 program: PROGRAM IDENTIFIER LPAREN identifier_list RPAREN SEMICOLON . block DOT
+
+    LABEL  shift, and go to state 12
+
+    $default  reduce using rule 4 (lblock)
+
+    block   go to state 13
+    lblock  go to state 14
+
+
+state 12
+
+    3 lblock: LABEL . NUMBER endlabel
+
+    NUMBER  shift, and go to state 15
+
+
+state 13
+
+    1 program: PROGRAM IDENTIFIER LPAREN identifier_list RPAREN SEMICOLON block . DOT
+
+    DOT  shift, and go to state 16
+
+
+state 14
+
+    2 block: lblock . cblock tblock vblock statement
+
+    CONST  shift, and go to state 17
+
+    $default  reduce using rule 8 (cblock)
+
+    cblock  go to state 18
+
+
+state 15
+
+    3 lblock: LABEL NUMBER . endlabel
+
+    COMMA      shift, and go to state 19
+    SEMICOLON  shift, and go to state 20
+
+    endlabel  go to state 21
+
+
+state 16
+
+    1 program: PROGRAM IDENTIFIER LPAREN identifier_list RPAREN SEMICOLON block DOT .
+
+    $default  reduce using rule 1 (program)
+
+
+state 17
+
+    7 cblock: CONST . c_asgn_list
+
+    IDENTIFIER  shift, and go to state 22
+
+    c_asgn_list  go to state 23
+    c_asgn       go to state 24
+
+
+state 18
+
+    2 block: lblock cblock . tblock vblock statement
+
+    TYPE  shift, and go to state 25
+
+    $default  reduce using rule 13 (tblock)
+
+    tblock  go to state 26
+
+
+state 19
+
+    5 endlabel: COMMA . NUMBER endlabel
+
+    NUMBER  shift, and go to state 27
+
+
+state 20
+
+    6 endlabel: SEMICOLON .
+
+    $default  reduce using rule 6 (endlabel)
+
+
+state 21
+
+    3 lblock: LABEL NUMBER endlabel .
+
+    $default  reduce using rule 3 (lblock)
+
+
+state 22
+
+   11 c_asgn: IDENTIFIER . EQ constant SEMICOLON
+
+    EQ  shift, and go to state 28
+
+
+state 23
+
+    7 cblock: CONST c_asgn_list .
+    9 c_asgn_list: c_asgn_list . c_asgn
+
+    IDENTIFIER  shift, and go to state 22
+
+    IDENTIFIER  [reduce using rule 7 (cblock)]
+    $default    reduce using rule 7 (cblock)
+
+    c_asgn  go to state 29
+
+
+state 24
+
+   10 c_asgn_list: c_asgn .
+
+    $default  reduce using rule 10 (c_asgn_list)
+
+
+state 25
+
+   12 tblock: TYPE . t_asgn_list
+
+    IDENTIFIER  shift, and go to state 30
+
+    t_asgn_list  go to state 31
+    t_asgn       go to state 32
+
+
+state 26
+
+    2 block: lblock cblock tblock . vblock statement
+
+    VAR  shift, and go to state 33
+
+    $default  reduce using rule 30 (vblock)
+
+    vblock  go to state 34
+
+
+state 27
+
+    5 endlabel: COMMA NUMBER . endlabel
+
+    COMMA      shift, and go to state 19
+    SEMICOLON  shift, and go to state 20
+
+    endlabel  go to state 35
+
+
+state 28
+
+   11 c_asgn: IDENTIFIER EQ . constant SEMICOLON
+
+    STRING  shift, and go to state 36
+    NUMBER  shift, and go to state 37
+    NIL     shift, and go to state 38
+
+    constant  go to state 39
+
+
+state 29
+
+    9 c_asgn_list: c_asgn_list c_asgn .
+
+    $default  reduce using rule 9 (c_asgn_list)
+
+
+state 30
+
+   16 t_asgn: IDENTIFIER . EQ type SEMICOLON
+
+    EQ  shift, and go to state 40
+
+
+state 31
+
+   12 tblock: TYPE t_asgn_list .
+   14 t_asgn_list: t_asgn_list . t_asgn
+
+    IDENTIFIER  shift, and go to state 30
+
+    IDENTIFIER  [reduce using rule 12 (tblock)]
+    $default    reduce using rule 12 (tblock)
+
+    t_asgn  go to state 41
+
+
+state 32
+
+   15 t_asgn_list: t_asgn .
+
+    $default  reduce using rule 15 (t_asgn_list)
+
+
+state 33
+
+   29 vblock: VAR . v_asgn_list
+
+    IDENTIFIER  shift, and go to state 6
+
+    v_asgn_list      go to state 42
+    v_asgn           go to state 43
+    identifier_list  go to state 44
+
+
+state 34
+
+    2 block: lblock cblock tblock vblock . statement
+
+    IDENTIFIER  shift, and go to state 45
+    NUMBER      shift, and go to state 46
+    BEGINBEGIN  shift, and go to state 47
+    FOR         shift, and go to state 48
+    GOTO        shift, and go to state 49
+    IF          shift, and go to state 50
+    REPEAT      shift, and go to state 51
+    WHILE       shift, and go to state 52
+
+    statement   go to state 53
+    assignment  go to state 54
+    variable    go to state 55
+
+
+state 35
+
+    5 endlabel: COMMA NUMBER endlabel .
+
+    $default  reduce using rule 5 (endlabel)
+
+
+state 36
+
+   82 constant: STRING .
+
+    $default  reduce using rule 82 (constant)
+
+
+state 37
+
+   81 constant: NUMBER .
+
+    $default  reduce using rule 81 (constant)
+
+
+state 38
+
+   83 constant: NIL .
+
+    $default  reduce using rule 83 (constant)
+
+
+state 39
+
+   11 c_asgn: IDENTIFIER EQ constant . SEMICOLON
+
+    SEMICOLON  shift, and go to state 56
+
+
+state 40
+
+   16 t_asgn: IDENTIFIER EQ . type SEMICOLON
+
+    IDENTIFIER  shift, and go to state 57
+    NUMBER      shift, and go to state 58
+    POINT       shift, and go to state 59
+    LPAREN      shift, and go to state 60
+    ARRAY       shift, and go to state 61
+    RECORD      shift, and go to state 62
+
+    type         go to state 63
+    simple_type  go to state 64
+
+
+state 41
+
+   14 t_asgn_list: t_asgn_list t_asgn .
+
+    $default  reduce using rule 14 (t_asgn_list)
+
+
+state 42
+
+   29 vblock: VAR v_asgn_list .
+   31 v_asgn_list: v_asgn_list . v_asgn
+
+    IDENTIFIER  shift, and go to state 6
+
+    IDENTIFIER  [reduce using rule 29 (vblock)]
+    $default    reduce using rule 29 (vblock)
+
+    v_asgn           go to state 65
+    identifier_list  go to state 44
+
+
+state 43
+
+   32 v_asgn_list: v_asgn .
+
+    $default  reduce using rule 32 (v_asgn_list)
+
+
+state 44
+
+   33 v_asgn: identifier_list . COLON type SEMICOLON
+
+    COLON  shift, and go to state 66
+
+
+state 45
+
+   43 statement: IDENTIFIER . LPAREN s_expr RPAREN
+   75 variable: IDENTIFIER .
+
+    LPAREN  shift, and go to state 67
+
+    $default  reduce using rule 75 (variable)
+
+
+state 46
+
+   37 statement: NUMBER . COLON statement
+
+    COLON  shift, and go to state 68
+
+
+state 47
+
+   36 statement: BEGINBEGIN . statement endpart
+
+    IDENTIFIER  shift, and go to state 45
+    NUMBER      shift, and go to state 46
+    BEGINBEGIN  shift, and go to state 47
+    FOR         shift, and go to state 48
+    GOTO        shift, and go to state 49
+    IF          shift, and go to state 50
+    REPEAT      shift, and go to state 51
+    WHILE       shift, and go to state 52
+
+    statement   go to state 69
+    assignment  go to state 54
+    variable    go to state 55
+
+
+state 48
+
+   40 statement: FOR . assignment TO expr DO statement
+   41          | FOR . assignment TO expr DOWNTO statement
+
+    IDENTIFIER  shift, and go to state 70
+
+    assignment  go to state 71
+    variable    go to state 55
+
+
+state 49
+
+   44 statement: GOTO . NUMBER
+
+    NUMBER  shift, and go to state 72
+
+
+state 50
+
+   38 statement: IF . expr THEN statement endif
+
+    IDENTIFIER  shift, and go to state 73
+    STRING      shift, and go to state 36
+    NUMBER      shift, and go to state 37
+    MINUS       shift, and go to state 74
+    LPAREN      shift, and go to state 75
+    NIL         shift, and go to state 38
+
+    expr      go to state 76
+    s_expr    go to state 77
+    term      go to state 78
+    factor    go to state 79
+    variable  go to state 80
+    constant  go to state 81
+
+
+state 51
+
+   39 statement: REPEAT . statement_list UNTIL expr
+
+    IDENTIFIER  shift, and go to state 45
+    NUMBER      shift, and go to state 46
+    BEGINBEGIN  shift, and go to state 47
+    FOR         shift, and go to state 48
+    GOTO        shift, and go to state 49
+    IF          shift, and go to state 50
+    REPEAT      shift, and go to state 51
+    WHILE       shift, and go to state 52
+
+    statement       go to state 82
+    statement_list  go to state 83
+    assignment      go to state 54
+    variable        go to state 55
+
+
+state 52
+
+   42 statement: WHILE . expr DO statement
+
+    IDENTIFIER  shift, and go to state 73
+    STRING      shift, and go to state 36
+    NUMBER      shift, and go to state 37
+    MINUS       shift, and go to state 74
+    LPAREN      shift, and go to state 75
+    NIL         shift, and go to state 38
+
+    expr      go to state 84
+    s_expr    go to state 77
+    term      go to state 78
+    factor    go to state 79
+    variable  go to state 80
+    constant  go to state 81
+
+
+state 53
+
+    2 block: lblock cblock tblock vblock statement .
+
+    $default  reduce using rule 2 (block)
+
+
+state 54
+
+   45 statement: assignment .
+
+    $default  reduce using rule 45 (statement)
+
+
+state 55
+
+   52 assignment: variable . ASSIGN expr
+   76 variable: variable . DOT IDENTIFIER
+   77         | variable . POINT
+   78         | variable . LBRACKET s_expr_list RBRACKET
+
+    ASSIGN    shift, and go to state 85
+    POINT     shift, and go to state 86
+    DOT       shift, and go to state 87
+    LBRACKET  shift, and go to state 88
+
+
+state 56
+
+   11 c_asgn: IDENTIFIER EQ constant SEMICOLON .
+
+    $default  reduce using rule 11 (c_asgn)
+
+
+state 57
+
+   21 simple_type: IDENTIFIER .
+
+    $default  reduce using rule 21 (simple_type)
+
+
+state 58
+
+   23 simple_type: NUMBER . DOTDOT NUMBER
+
+    DOTDOT  shift, and go to state 89
+
+
+state 59
+
+   18 type: POINT . IDENTIFIER
+
+    IDENTIFIER  shift, and go to state 90
+
+
+state 60
+
+   22 simple_type: LPAREN . identifier_list RPAREN
+
+    IDENTIFIER  shift, and go to state 6
+
+    identifier_list  go to state 91
+
+
+state 61
+
+   19 type: ARRAY . LBRACKET s_type_list RBRACKET OF type
+
+    LBRACKET  shift, and go to state 92
+
+
+state 62
+
+   20 type: RECORD . field_list END
+
+    IDENTIFIER  shift, and go to state 6
+
+    field_list       go to state 93
+    field            go to state 94
+    identifier_list  go to state 95
+
+
+state 63
+
+   16 t_asgn: IDENTIFIER EQ type . SEMICOLON
+
+    SEMICOLON  shift, and go to state 96
+
+
+state 64
+
+   17 type: simple_type .
+
+    $default  reduce using rule 17 (type)
+
+
+state 65
+
+   31 v_asgn_list: v_asgn_list v_asgn .
+
+    $default  reduce using rule 31 (v_asgn_list)
+
+
+state 66
+
+   33 v_asgn: identifier_list COLON . type SEMICOLON
+
+    IDENTIFIER  shift, and go to state 57
+    NUMBER      shift, and go to state 58
+    POINT       shift, and go to state 59
+    LPAREN      shift, and go to state 60
+    ARRAY       shift, and go to state 61
+    RECORD      shift, and go to state 62
+
+    type         go to state 97
+    simple_type  go to state 64
+
+
+state 67
+
+   43 statement: IDENTIFIER LPAREN . s_expr RPAREN
+
+    IDENTIFIER  shift, and go to state 73
+    STRING      shift, and go to state 36
+    NUMBER      shift, and go to state 37
+    MINUS       shift, and go to state 74
+    LPAREN      shift, and go to state 75
+    NIL         shift, and go to state 38
+
+    s_expr    go to state 98
+    term      go to state 78
+    factor    go to state 79
+    variable  go to state 80
+    constant  go to state 81
+
+
+state 68
+
+   37 statement: NUMBER COLON . statement
+
+    IDENTIFIER  shift, and go to state 45
+    NUMBER      shift, and go to state 46
+    BEGINBEGIN  shift, and go to state 47
+    FOR         shift, and go to state 48
+    GOTO        shift, and go to state 49
+    IF          shift, and go to state 50
+    REPEAT      shift, and go to state 51
+    WHILE       shift, and go to state 52
+
+    statement   go to state 99
+    assignment  go to state 54
+    variable    go to state 55
+
+
+state 69
+
+   36 statement: BEGINBEGIN statement . endpart
+
+    SEMICOLON  shift, and go to state 100
+    END        shift, and go to state 101
+
+    endpart  go to state 102
+
+
+state 70
+
+   75 variable: IDENTIFIER .
+
+    $default  reduce using rule 75 (variable)
+
+
+state 71
+
+   40 statement: FOR assignment . TO expr DO statement
+   41          | FOR assignment . TO expr DOWNTO statement
+
+    TO  shift, and go to state 103
+
+
+state 72
+
+   44 statement: GOTO NUMBER .
+
+    $default  reduce using rule 44 (statement)
+
+
+state 73
+
+   73 factor: IDENTIFIER . LPAREN s_expr RPAREN
+   75 variable: IDENTIFIER .
+
+    LPAREN  shift, and go to state 104
+
+    $default  reduce using rule 75 (variable)
+
+
+state 74
+
+   61 s_expr: MINUS . s_expr
+
+    IDENTIFIER  shift, and go to state 73
+    STRING      shift, and go to state 36
+    NUMBER      shift, and go to state 37
+    MINUS       shift, and go to state 74
+    LPAREN      shift, and go to state 75
+    NIL         shift, and go to state 38
+
+    s_expr    go to state 105
+    term      go to state 78
+    factor    go to state 79
+    variable  go to state 80
+    constant  go to state 81
+
+
+state 75
+
+   71 factor: LPAREN . expr RPAREN
+
+    IDENTIFIER  shift, and go to state 73
+    STRING      shift, and go to state 36
+    NUMBER      shift, and go to state 37
+    MINUS       shift, and go to state 74
+    LPAREN      shift, and go to state 75
+    NIL         shift, and go to state 38
+
+    expr      go to state 106
+    s_expr    go to state 77
+    term      go to state 78
+    factor    go to state 79
+    variable  go to state 80
+    constant  go to state 81
+
+
+state 76
+
+   38 statement: IF expr . THEN statement endif
+
+    THEN  shift, and go to state 107
+
+
+state 77
+
+   53 expr: s_expr . EQ s_expr
+   54     | s_expr . LT s_expr
+   55     | s_expr . GT s_expr
+   56     | s_expr . NE s_expr
+   57     | s_expr . LE s_expr
+   58     | s_expr . GE s_expr
+   59     | s_expr . IN s_expr
+   60     | s_expr .
+   62 s_expr: s_expr . PLUS term
+   63       | s_expr . MINUS term
+   64       | s_expr . OR term
+
+    PLUS   shift, and go to state 108
+    MINUS  shift, and go to state 109
+    EQ     shift, and go to state 110
+    NE     shift, and go to state 111
+    LT     shift, and go to state 112
+    LE     shift, and go to state 113
+    GE     shift, and go to state 114
+    GT     shift, and go to state 115
+    OR     shift, and go to state 116
+    IN     shift, and go to state 117
+
+    $default  reduce using rule 60 (expr)
+
+
+state 78
+
+   65 s_expr: term .
+   66 term: term . TIMES factor
+   67     | term . DIVIDE factor
+   68     | term . MOD factor
+   69     | term . AND factor
+
+    TIMES   shift, and go to state 118
+    DIVIDE  shift, and go to state 119
+    AND     shift, and go to state 120
+    MOD     shift, and go to state 121
+
+    $default  reduce using rule 65 (s_expr)
+
+
+state 79
+
+   70 term: factor .
+
+    $default  reduce using rule 70 (term)
+
+
+state 80
+
+   72 factor: variable .
+   76 variable: variable . DOT IDENTIFIER
+   77         | variable . POINT
+   78         | variable . LBRACKET s_expr_list RBRACKET
+
+    POINT     shift, and go to state 86
+    DOT       shift, and go to state 87
+    LBRACKET  shift, and go to state 88
+
+    DOT       [reduce using rule 72 (factor)]
+    $default  reduce using rule 72 (factor)
+
+
+state 81
+
+   74 factor: constant .
+
+    $default  reduce using rule 74 (factor)
+
+
+state 82
+
+   48 statement_list: statement . SEMICOLON statement_list
+   49               | statement .
+
+    SEMICOLON  shift, and go to state 122
+
+    $default  reduce using rule 49 (statement_list)
+
+
+state 83
+
+   39 statement: REPEAT statement_list . UNTIL expr
+
+    UNTIL  shift, and go to state 123
+
+
+state 84
+
+   42 statement: WHILE expr . DO statement
+
+    DO  shift, and go to state 124
+
+
+state 85
+
+   52 assignment: variable ASSIGN . expr
+
+    IDENTIFIER  shift, and go to state 73
+    STRING      shift, and go to state 36
+    NUMBER      shift, and go to state 37
+    MINUS       shift, and go to state 74
+    LPAREN      shift, and go to state 75
+    NIL         shift, and go to state 38
+
+    expr      go to state 125
+    s_expr    go to state 77
+    term      go to state 78
+    factor    go to state 79
+    variable  go to state 80
+    constant  go to state 81
+
+
+state 86
+
+   77 variable: variable POINT .
+
+    $default  reduce using rule 77 (variable)
+
+
+state 87
+
+   76 variable: variable DOT . IDENTIFIER
+
+    IDENTIFIER  shift, and go to state 126
+
+
+state 88
+
+   78 variable: variable LBRACKET . s_expr_list RBRACKET
+
+    IDENTIFIER  shift, and go to state 73
+    STRING      shift, and go to state 36
+    NUMBER      shift, and go to state 37
+    MINUS       shift, and go to state 74
+    LPAREN      shift, and go to state 75
+    NIL         shift, and go to state 38
+
+    s_expr       go to state 127
+    term         go to state 78
+    factor       go to state 79
+    variable     go to state 80
+    s_expr_list  go to state 128
+    constant     go to state 81
+
+
+state 89
+
+   23 simple_type: NUMBER DOTDOT . NUMBER
+
+    NUMBER  shift, and go to state 129
+
+
+state 90
+
+   18 type: POINT IDENTIFIER .
+
+    $default  reduce using rule 18 (type)
+
+
+state 91
+
+   22 simple_type: LPAREN identifier_list . RPAREN
+
+    RPAREN  shift, and go to state 130
+
+
+state 92
+
+   19 type: ARRAY LBRACKET . s_type_list RBRACKET OF type
+
+    IDENTIFIER  shift, and go to state 57
+    NUMBER      shift, and go to state 58
+    LPAREN      shift, and go to state 60
+
+    simple_type  go to state 131
+    s_type_list  go to state 132
+
+
+state 93
+
+   20 type: RECORD field_list . END
+
+    END  shift, and go to state 133
+
+
+state 94
+
+   26 field_list: field . SEMICOLON field_list
+   27           | field .
+
+    SEMICOLON  shift, and go to state 134
+
+    $default  reduce using rule 27 (field_list)
+
+
+state 95
+
+   28 field: identifier_list . COLON type
+
+    COLON  shift, and go to state 135
+
+
+state 96
+
+   16 t_asgn: IDENTIFIER EQ type SEMICOLON .
+
+    $default  reduce using rule 16 (t_asgn)
+
+
+state 97
+
+   33 v_asgn: identifier_list COLON type . SEMICOLON
+
+    SEMICOLON  shift, and go to state 136
+
+
+state 98
+
+   43 statement: IDENTIFIER LPAREN s_expr . RPAREN
+   62 s_expr: s_expr . PLUS term
+   63       | s_expr . MINUS term
+   64       | s_expr . OR term
+
+    PLUS    shift, and go to state 108
+    MINUS   shift, and go to state 109
+    OR      shift, and go to state 116
+    RPAREN  shift, and go to state 137
+
+
+state 99
+
+   37 statement: NUMBER COLON statement .
+
+    $default  reduce using rule 37 (statement)
+
+
+state 100
+
+   46 endpart: SEMICOLON . statement endpart
+
+    IDENTIFIER  shift, and go to state 45
+    NUMBER      shift, and go to state 46
+    BEGINBEGIN  shift, and go to state 47
+    FOR         shift, and go to state 48
+    GOTO        shift, and go to state 49
+    IF          shift, and go to state 50
+    REPEAT      shift, and go to state 51
+    WHILE       shift, and go to state 52
+
+    statement   go to state 138
+    assignment  go to state 54
+    variable    go to state 55
+
+
+state 101
+
+   47 endpart: END .
+
+    $default  reduce using rule 47 (endpart)
+
+
+state 102
+
+   36 statement: BEGINBEGIN statement endpart .
+
+    $default  reduce using rule 36 (statement)
+
+
+state 103
+
+   40 statement: FOR assignment TO . expr DO statement
+   41          | FOR assignment TO . expr DOWNTO statement
+
+    IDENTIFIER  shift, and go to state 73
+    STRING      shift, and go to state 36
+    NUMBER      shift, and go to state 37
+    MINUS       shift, and go to state 74
+    LPAREN      shift, and go to state 75
+    NIL         shift, and go to state 38
+
+    expr      go to state 139
+    s_expr    go to state 77
+    term      go to state 78
+    factor    go to state 79
+    variable  go to state 80
+    constant  go to state 81
+
+
+state 104
+
+   73 factor: IDENTIFIER LPAREN . s_expr RPAREN
+
+    IDENTIFIER  shift, and go to state 73
+    STRING      shift, and go to state 36
+    NUMBER      shift, and go to state 37
+    MINUS       shift, and go to state 74
+    LPAREN      shift, and go to state 75
+    NIL         shift, and go to state 38
+
+    s_expr    go to state 140
+    term      go to state 78
+    factor    go to state 79
+    variable  go to state 80
+    constant  go to state 81
+
+
+state 105
+
+   61 s_expr: MINUS s_expr .
+   62       | s_expr . PLUS term
+   63       | s_expr . MINUS term
+   64       | s_expr . OR term
+
+    PLUS   shift, and go to state 108
+    MINUS  shift, and go to state 109
+    OR     shift, and go to state 116
+
+    PLUS      [reduce using rule 61 (s_expr)]
+    MINUS     [reduce using rule 61 (s_expr)]
+    OR        [reduce using rule 61 (s_expr)]
+    $default  reduce using rule 61 (s_expr)
+
+
+state 106
+
+   71 factor: LPAREN expr . RPAREN
+
+    RPAREN  shift, and go to state 141
+
+
+state 107
+
+   38 statement: IF expr THEN . statement endif
+
+    IDENTIFIER  shift, and go to state 45
+    NUMBER      shift, and go to state 46
+    BEGINBEGIN  shift, and go to state 47
+    FOR         shift, and go to state 48
+    GOTO        shift, and go to state 49
+    IF          shift, and go to state 50
+    REPEAT      shift, and go to state 51
+    WHILE       shift, and go to state 52
+
+    statement   go to state 142
+    assignment  go to state 54
+    variable    go to state 55
+
+
+state 108
+
+   62 s_expr: s_expr PLUS . term
+
+    IDENTIFIER  shift, and go to state 73
+    STRING      shift, and go to state 36
+    NUMBER      shift, and go to state 37
+    LPAREN      shift, and go to state 75
+    NIL         shift, and go to state 38
+
+    term      go to state 143
+    factor    go to state 79
+    variable  go to state 80
+    constant  go to state 81
+
+
+state 109
+
+   63 s_expr: s_expr MINUS . term
+
+    IDENTIFIER  shift, and go to state 73
+    STRING      shift, and go to state 36
+    NUMBER      shift, and go to state 37
+    LPAREN      shift, and go to state 75
+    NIL         shift, and go to state 38
+
+    term      go to state 144
+    factor    go to state 79
+    variable  go to state 80
+    constant  go to state 81
+
+
+state 110
+
+   53 expr: s_expr EQ . s_expr
+
+    IDENTIFIER  shift, and go to state 73
+    STRING      shift, and go to state 36
+    NUMBER      shift, and go to state 37
+    MINUS       shift, and go to state 74
+    LPAREN      shift, and go to state 75
+    NIL         shift, and go to state 38
+
+    s_expr    go to state 145
+    term      go to state 78
+    factor    go to state 79
+    variable  go to state 80
+    constant  go to state 81
+
+
+state 111
+
+   56 expr: s_expr NE . s_expr
+
+    IDENTIFIER  shift, and go to state 73
+    STRING      shift, and go to state 36
+    NUMBER      shift, and go to state 37
+    MINUS       shift, and go to state 74
+    LPAREN      shift, and go to state 75
+    NIL         shift, and go to state 38
+
+    s_expr    go to state 146
+    term      go to state 78
+    factor    go to state 79
+    variable  go to state 80
+    constant  go to state 81
+
+
+state 112
+
+   54 expr: s_expr LT . s_expr
+
+    IDENTIFIER  shift, and go to state 73
+    STRING      shift, and go to state 36
+    NUMBER      shift, and go to state 37
+    MINUS       shift, and go to state 74
+    LPAREN      shift, and go to state 75
+    NIL         shift, and go to state 38
+
+    s_expr    go to state 147
+    term      go to state 78
+    factor    go to state 79
+    variable  go to state 80
+    constant  go to state 81
+
+
+state 113
+
+   57 expr: s_expr LE . s_expr
+
+    IDENTIFIER  shift, and go to state 73
+    STRING      shift, and go to state 36
+    NUMBER      shift, and go to state 37
+    MINUS       shift, and go to state 74
+    LPAREN      shift, and go to state 75
+    NIL         shift, and go to state 38
+
+    s_expr    go to state 148
+    term      go to state 78
+    factor    go to state 79
+    variable  go to state 80
+    constant  go to state 81
+
+
+state 114
+
+   58 expr: s_expr GE . s_expr
+
+    IDENTIFIER  shift, and go to state 73
+    STRING      shift, and go to state 36
+    NUMBER      shift, and go to state 37
+    MINUS       shift, and go to state 74
+    LPAREN      shift, and go to state 75
+    NIL         shift, and go to state 38
+
+    s_expr    go to state 149
+    term      go to state 78
+    factor    go to state 79
+    variable  go to state 80
+    constant  go to state 81
+
+
+state 115
+
+   55 expr: s_expr GT . s_expr
+
+    IDENTIFIER  shift, and go to state 73
+    STRING      shift, and go to state 36
+    NUMBER      shift, and go to state 37
+    MINUS       shift, and go to state 74
+    LPAREN      shift, and go to state 75
+    NIL         shift, and go to state 38
+
+    s_expr    go to state 150
+    term      go to state 78
+    factor    go to state 79
+    variable  go to state 80
+    constant  go to state 81
+
+
+state 116
+
+   64 s_expr: s_expr OR . term
+
+    IDENTIFIER  shift, and go to state 73
+    STRING      shift, and go to state 36
+    NUMBER      shift, and go to state 37
+    LPAREN      shift, and go to state 75
+    NIL         shift, and go to state 38
+
+    term      go to state 151
+    factor    go to state 79
+    variable  go to state 80
+    constant  go to state 81
+
+
+state 117
+
+   59 expr: s_expr IN . s_expr
+
+    IDENTIFIER  shift, and go to state 73
+    STRING      shift, and go to state 36
+    NUMBER      shift, and go to state 37
+    MINUS       shift, and go to state 74
+    LPAREN      shift, and go to state 75
+    NIL         shift, and go to state 38
+
+    s_expr    go to state 152
+    term      go to state 78
+    factor    go to state 79
+    variable  go to state 80
+    constant  go to state 81
+
+
+state 118
+
+   66 term: term TIMES . factor
+
+    IDENTIFIER  shift, and go to state 73
+    STRING      shift, and go to state 36
+    NUMBER      shift, and go to state 37
+    LPAREN      shift, and go to state 75
+    NIL         shift, and go to state 38
+
+    factor    go to state 153
+    variable  go to state 80
+    constant  go to state 81
+
+
+state 119
+
+   67 term: term DIVIDE . factor
+
+    IDENTIFIER  shift, and go to state 73
+    STRING      shift, and go to state 36
+    NUMBER      shift, and go to state 37
+    LPAREN      shift, and go to state 75
+    NIL         shift, and go to state 38
+
+    factor    go to state 154
+    variable  go to state 80
+    constant  go to state 81
+
+
+state 120
+
+   69 term: term AND . factor
+
+    IDENTIFIER  shift, and go to state 73
+    STRING      shift, and go to state 36
+    NUMBER      shift, and go to state 37
+    LPAREN      shift, and go to state 75
+    NIL         shift, and go to state 38
+
+    factor    go to state 155
+    variable  go to state 80
+    constant  go to state 81
+
+
+state 121
+
+   68 term: term MOD . factor
+
+    IDENTIFIER  shift, and go to state 73
+    STRING      shift, and go to state 36
+    NUMBER      shift, and go to state 37
+    LPAREN      shift, and go to state 75
+    NIL         shift, and go to state 38
+
+    factor    go to state 156
+    variable  go to state 80
+    constant  go to state 81
+
+
+state 122
+
+   48 statement_list: statement SEMICOLON . statement_list
+
+    IDENTIFIER  shift, and go to state 45
+    NUMBER      shift, and go to state 46
+    BEGINBEGIN  shift, and go to state 47
+    FOR         shift, and go to state 48
+    GOTO        shift, and go to state 49
+    IF          shift, and go to state 50
+    REPEAT      shift, and go to state 51
+    WHILE       shift, and go to state 52
+
+    statement       go to state 82
+    statement_list  go to state 157
+    assignment      go to state 54
+    variable        go to state 55
+
+
+state 123
+
+   39 statement: REPEAT statement_list UNTIL . expr
+
+    IDENTIFIER  shift, and go to state 73
+    STRING      shift, and go to state 36
+    NUMBER      shift, and go to state 37
+    MINUS       shift, and go to state 74
+    LPAREN      shift, and go to state 75
+    NIL         shift, and go to state 38
+
+    expr      go to state 158
+    s_expr    go to state 77
+    term      go to state 78
+    factor    go to state 79
+    variable  go to state 80
+    constant  go to state 81
+
+
+state 124
+
+   42 statement: WHILE expr DO . statement
+
+    IDENTIFIER  shift, and go to state 45
+    NUMBER      shift, and go to state 46
+    BEGINBEGIN  shift, and go to state 47
+    FOR         shift, and go to state 48
+    GOTO        shift, and go to state 49
+    IF          shift, and go to state 50
+    REPEAT      shift, and go to state 51
+    WHILE       shift, and go to state 52
+
+    statement   go to state 159
+    assignment  go to state 54
+    variable    go to state 55
+
+
+state 125
+
+   52 assignment: variable ASSIGN expr .
+
+    $default  reduce using rule 52 (assignment)
+
+
+state 126
+
+   76 variable: variable DOT IDENTIFIER .
+
+    $default  reduce using rule 76 (variable)
+
+
+state 127
+
+   62 s_expr: s_expr . PLUS term
+   63       | s_expr . MINUS term
+   64       | s_expr . OR term
+   79 s_expr_list: s_expr . COMMA s_expr_list
+   80            | s_expr .
+
+    PLUS   shift, and go to state 108
+    MINUS  shift, and go to state 109
+    OR     shift, and go to state 116
+    COMMA  shift, and go to state 160
+
+    $default  reduce using rule 80 (s_expr_list)
+
+
+state 128
+
+   78 variable: variable LBRACKET s_expr_list . RBRACKET
+
+    RBRACKET  shift, and go to state 161
+
+
+state 129
+
+   23 simple_type: NUMBER DOTDOT NUMBER .
+
+    $default  reduce using rule 23 (simple_type)
+
+
+state 130
+
+   22 simple_type: LPAREN identifier_list RPAREN .
+
+    $default  reduce using rule 22 (simple_type)
+
+
+state 131
+
+   24 s_type_list: simple_type . COMMA s_type_list
+   25            | simple_type .
+
+    COMMA  shift, and go to state 162
+
+    $default  reduce using rule 25 (s_type_list)
+
+
+state 132
+
+   19 type: ARRAY LBRACKET s_type_list . RBRACKET OF type
+
+    RBRACKET  shift, and go to state 163
+
+
+state 133
+
+   20 type: RECORD field_list END .
+
+    $default  reduce using rule 20 (type)
+
+
+state 134
+
+   26 field_list: field SEMICOLON . field_list
+
+    IDENTIFIER  shift, and go to state 6
+
+    field_list       go to state 164
+    field            go to state 94
+    identifier_list  go to state 95
+
+
+state 135
+
+   28 field: identifier_list COLON . type
+
+    IDENTIFIER  shift, and go to state 57
+    NUMBER      shift, and go to state 58
+    POINT       shift, and go to state 59
+    LPAREN      shift, and go to state 60
+    ARRAY       shift, and go to state 61
+    RECORD      shift, and go to state 62
+
+    type         go to state 165
+    simple_type  go to state 64
+
+
+state 136
+
+   33 v_asgn: identifier_list COLON type SEMICOLON .
+
+    $default  reduce using rule 33 (v_asgn)
+
+
+state 137
+
+   43 statement: IDENTIFIER LPAREN s_expr RPAREN .
+
+    $default  reduce using rule 43 (statement)
+
+
+state 138
+
+   46 endpart: SEMICOLON statement . endpart
+
+    SEMICOLON  shift, and go to state 100
+    END        shift, and go to state 101
+
+    endpart  go to state 166
+
+
+state 139
+
+   40 statement: FOR assignment TO expr . DO statement
+   41          | FOR assignment TO expr . DOWNTO statement
+
+    DO      shift, and go to state 167
+    DOWNTO  shift, and go to state 168
+
+
+state 140
+
+   62 s_expr: s_expr . PLUS term
+   63       | s_expr . MINUS term
+   64       | s_expr . OR term
+   73 factor: IDENTIFIER LPAREN s_expr . RPAREN
+
+    PLUS    shift, and go to state 108
+    MINUS   shift, and go to state 109
+    OR      shift, and go to state 116
+    RPAREN  shift, and go to state 169
+
+
+state 141
+
+   71 factor: LPAREN expr RPAREN .
+
+    $default  reduce using rule 71 (factor)
+
+
+state 142
+
+   38 statement: IF expr THEN statement . endif
+
+    ELSE  shift, and go to state 170
+
+    ELSE      [reduce using rule 51 (endif)]
+    $default  reduce using rule 51 (endif)
+
+    endif  go to state 171
+
+
+state 143
+
+   62 s_expr: s_expr PLUS term .
+   66 term: term . TIMES factor
+   67     | term . DIVIDE factor
+   68     | term . MOD factor
+   69     | term . AND factor
+
+    TIMES   shift, and go to state 118
+    DIVIDE  shift, and go to state 119
+    AND     shift, and go to state 120
+    MOD     shift, and go to state 121
+
+    $default  reduce using rule 62 (s_expr)
+
+
+state 144
+
+   63 s_expr: s_expr MINUS term .
+   66 term: term . TIMES factor
+   67     | term . DIVIDE factor
+   68     | term . MOD factor
+   69     | term . AND factor
+
+    TIMES   shift, and go to state 118
+    DIVIDE  shift, and go to state 119
+    AND     shift, and go to state 120
+    MOD     shift, and go to state 121
+
+    $default  reduce using rule 63 (s_expr)
+
+
+state 145
+
+   53 expr: s_expr EQ s_expr .
+   62 s_expr: s_expr . PLUS term
+   63       | s_expr . MINUS term
+   64       | s_expr . OR term
+
+    PLUS   shift, and go to state 108
+    MINUS  shift, and go to state 109
+    OR     shift, and go to state 116
+
+    $default  reduce using rule 53 (expr)
+
+
+state 146
+
+   56 expr: s_expr NE s_expr .
+   62 s_expr: s_expr . PLUS term
+   63       | s_expr . MINUS term
+   64       | s_expr . OR term
+
+    PLUS   shift, and go to state 108
+    MINUS  shift, and go to state 109
+    OR     shift, and go to state 116
+
+    $default  reduce using rule 56 (expr)
+
+
+state 147
+
+   54 expr: s_expr LT s_expr .
+   62 s_expr: s_expr . PLUS term
+   63       | s_expr . MINUS term
+   64       | s_expr . OR term
+
+    PLUS   shift, and go to state 108
+    MINUS  shift, and go to state 109
+    OR     shift, and go to state 116
+
+    $default  reduce using rule 54 (expr)
+
+
+state 148
+
+   57 expr: s_expr LE s_expr .
+   62 s_expr: s_expr . PLUS term
+   63       | s_expr . MINUS term
+   64       | s_expr . OR term
+
+    PLUS   shift, and go to state 108
+    MINUS  shift, and go to state 109
+    OR     shift, and go to state 116
+
+    $default  reduce using rule 57 (expr)
+
+
+state 149
+
+   58 expr: s_expr GE s_expr .
+   62 s_expr: s_expr . PLUS term
+   63       | s_expr . MINUS term
+   64       | s_expr . OR term
+
+    PLUS   shift, and go to state 108
+    MINUS  shift, and go to state 109
+    OR     shift, and go to state 116
+
+    $default  reduce using rule 58 (expr)
+
+
+state 150
+
+   55 expr: s_expr GT s_expr .
+   62 s_expr: s_expr . PLUS term
+   63       | s_expr . MINUS term
+   64       | s_expr . OR term
+
+    PLUS   shift, and go to state 108
+    MINUS  shift, and go to state 109
+    OR     shift, and go to state 116
+
+    $default  reduce using rule 55 (expr)
+
+
+state 151
+
+   64 s_expr: s_expr OR term .
+   66 term: term . TIMES factor
+   67     | term . DIVIDE factor
+   68     | term . MOD factor
+   69     | term . AND factor
+
+    TIMES   shift, and go to state 118
+    DIVIDE  shift, and go to state 119
+    AND     shift, and go to state 120
+    MOD     shift, and go to state 121
+
+    $default  reduce using rule 64 (s_expr)
+
+
+state 152
+
+   59 expr: s_expr IN s_expr .
+   62 s_expr: s_expr . PLUS term
+   63       | s_expr . MINUS term
+   64       | s_expr . OR term
+
+    PLUS   shift, and go to state 108
+    MINUS  shift, and go to state 109
+    OR     shift, and go to state 116
+
+    $default  reduce using rule 59 (expr)
+
+
+state 153
+
+   66 term: term TIMES factor .
+
+    $default  reduce using rule 66 (term)
+
+
+state 154
+
+   67 term: term DIVIDE factor .
+
+    $default  reduce using rule 67 (term)
+
+
+state 155
+
+   69 term: term AND factor .
+
+    $default  reduce using rule 69 (term)
+
+
+state 156
+
+   68 term: term MOD factor .
+
+    $default  reduce using rule 68 (term)
+
+
+state 157
+
+   48 statement_list: statement SEMICOLON statement_list .
+
+    $default  reduce using rule 48 (statement_list)
+
+
+state 158
+
+   39 statement: REPEAT statement_list UNTIL expr .
+
+    $default  reduce using rule 39 (statement)
+
+
+state 159
+
+   42 statement: WHILE expr DO statement .
+
+    $default  reduce using rule 42 (statement)
+
+
+state 160
+
+   79 s_expr_list: s_expr COMMA . s_expr_list
+
+    IDENTIFIER  shift, and go to state 73
+    STRING      shift, and go to state 36
+    NUMBER      shift, and go to state 37
+    MINUS       shift, and go to state 74
+    LPAREN      shift, and go to state 75
+    NIL         shift, and go to state 38
+
+    s_expr       go to state 127
+    term         go to state 78
+    factor       go to state 79
+    variable     go to state 80
+    s_expr_list  go to state 172
+    constant     go to state 81
+
+
+state 161
+
+   78 variable: variable LBRACKET s_expr_list RBRACKET .
+
+    $default  reduce using rule 78 (variable)
+
+
+state 162
+
+   24 s_type_list: simple_type COMMA . s_type_list
+
+    IDENTIFIER  shift, and go to state 57
+    NUMBER      shift, and go to state 58
+    LPAREN      shift, and go to state 60
+
+    simple_type  go to state 131
+    s_type_list  go to state 173
+
+
+state 163
+
+   19 type: ARRAY LBRACKET s_type_list RBRACKET . OF type
+
+    OF  shift, and go to state 174
+
+
+state 164
+
+   26 field_list: field SEMICOLON field_list .
+
+    $default  reduce using rule 26 (field_list)
+
+
+state 165
+
+   28 field: identifier_list COLON type .
+
+    $default  reduce using rule 28 (field)
+
+
+state 166
+
+   46 endpart: SEMICOLON statement endpart .
+
+    $default  reduce using rule 46 (endpart)
+
+
+state 167
+
+   40 statement: FOR assignment TO expr DO . statement
+
+    IDENTIFIER  shift, and go to state 45
+    NUMBER      shift, and go to state 46
+    BEGINBEGIN  shift, and go to state 47
+    FOR         shift, and go to state 48
+    GOTO        shift, and go to state 49
+    IF          shift, and go to state 50
+    REPEAT      shift, and go to state 51
+    WHILE       shift, and go to state 52
+
+    statement   go to state 175
+    assignment  go to state 54
+    variable    go to state 55
+
+
+state 168
+
+   41 statement: FOR assignment TO expr DOWNTO . statement
+
+    IDENTIFIER  shift, and go to state 45
+    NUMBER      shift, and go to state 46
+    BEGINBEGIN  shift, and go to state 47
+    FOR         shift, and go to state 48
+    GOTO        shift, and go to state 49
+    IF          shift, and go to state 50
+    REPEAT      shift, and go to state 51
+    WHILE       shift, and go to state 52
+
+    statement   go to state 176
+    assignment  go to state 54
+    variable    go to state 55
+
+
+state 169
+
+   73 factor: IDENTIFIER LPAREN s_expr RPAREN .
+
+    $default  reduce using rule 73 (factor)
+
+
+state 170
+
+   50 endif: ELSE . statement
+
+    IDENTIFIER  shift, and go to state 45
+    NUMBER      shift, and go to state 46
+    BEGINBEGIN  shift, and go to state 47
+    FOR         shift, and go to state 48
+    GOTO        shift, and go to state 49
+    IF          shift, and go to state 50
+    REPEAT      shift, and go to state 51
+    WHILE       shift, and go to state 52
+
+    statement   go to state 177
+    assignment  go to state 54
+    variable    go to state 55
+
+
+state 171
+
+   38 statement: IF expr THEN statement endif .
+
+    $default  reduce using rule 38 (statement)
+
+
+state 172
+
+   79 s_expr_list: s_expr COMMA s_expr_list .
+
+    $default  reduce using rule 79 (s_expr_list)
+
+
+state 173
+
+   24 s_type_list: simple_type COMMA s_type_list .
+
+    $default  reduce using rule 24 (s_type_list)
+
+
+state 174
+
+   19 type: ARRAY LBRACKET s_type_list RBRACKET OF . type
+
+    IDENTIFIER  shift, and go to state 57
+    NUMBER      shift, and go to state 58
+    POINT       shift, and go to state 59
+    LPAREN      shift, and go to state 60
+    ARRAY       shift, and go to state 61
+    RECORD      shift, and go to state 62
+
+    type         go to state 178
+    simple_type  go to state 64
+
+
+state 175
+
+   40 statement: FOR assignment TO expr DO statement .
+
+    $default  reduce using rule 40 (statement)
+
+
+state 176
+
+   41 statement: FOR assignment TO expr DOWNTO statement .
+
+    $default  reduce using rule 41 (statement)
+
+
+state 177
+
+   50 endif: ELSE statement .
+
+    $default  reduce using rule 50 (endif)
+
+
+state 178
+
+   19 type: ARRAY LBRACKET s_type_list RBRACKET OF type .
+
+    $default  reduce using rule 19 (type)

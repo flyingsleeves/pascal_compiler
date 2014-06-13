@@ -1,0 +1,4 @@
+#!/bin/bash
+make clean
+make testpasrec
+sdiff --width=170 output.txt pasrec.sample

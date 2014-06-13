@@ -1,0 +1,4 @@
+#!/bin/bash
+make clean
+make testgraph1
+sdiff --width=170 output.txt graph1.sample

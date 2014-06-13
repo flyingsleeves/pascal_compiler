@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="90">
+  <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
+    <df root="." name="0">
+      <in>codegen.h</in>
+      <in>codgen.c</in>
+      <in>driver.c</in>
+      <in>driver.s</in>
+      <in>genasm.c</in>
+      <in>genasm.h</in>
+      <in>graph1-gcc.s</in>
+      <in>graph1.c</in>
+      <in>graph1.s</in>
+      <in>halves.c</in>
+      <in>instvars.c</in>
+      <in>lex.yy.c</in>
+      <in>lex1.c</in>
+      <in>lex2.l</in>
+      <in>lexan.h</in>
+      <in>lexan.l</in>
+      <in>lexanc.c</in>
+      <in>lexandr.c</in>
+      <in>lexanl.c</in>
+      <in>lexasu.l</in>
+      <in>newfile.c</in>
+      <in>number.c</in>
+      <in>opprec.c</in>
+      <in>pars1.c</in>
+      <in>pars1.h</in>
+      <in>pars1.tab.c</in>
+      <in>pars1.y</in>
+      <in>pars1c.c</in>
+      <in>parsc.c</in>
+      <in>parse.h</in>
+      <in>parse.y</in>
+      <in>pasrec-gcc.s</in>
+      <in>pasrec.c</in>
+      <in>pasrec.s</in>
+      <in>pprint.c</in>
+      <in>printtoken.c</in>
+      <in>scanner.c</in>
+      <in>simcalc.y</in>
+      <in>subst.c</in>
+      <in>symtab.c</in>
+      <in>symtab.h</in>
+      <in>token.h</in>
+      <in>tokena.h</in>
+      <in>triv.c</in>
+      <in>triv.s</in>
+      <in>trivb.s</in>
+      <in>y.tab.c</in>
+    </df>
+  </logicalFolder>
+  <projectmakefile>makefile</projectmakefile>
+  <confs>
+    <conf name="Default" type="0">
+      <toolsSet>
+        <developmentServer>localhost</developmentServer>
+        <platform>2</platform>
+      </toolsSet>
+      <compile>
+        <compiledirpicklist>
+          <compiledirpicklistitem>.</compiledirpicklistitem>
+          <compiledirpicklistitem>${AUTO_FOLDER}</compiledirpicklistitem>
+        </compiledirpicklist>
+        <compiledir>${AUTO_FOLDER}</compiledir>
+        <compilecommandpicklist>
+          <compilecommandpicklistitem>${MAKE} ${ITEM_NAME}.o</compilecommandpicklistitem>
+          <compilecommandpicklistitem>${AUTO_COMPILE}</compilecommandpicklistitem>
+        </compilecommandpicklist>
+        <compilecommand>${AUTO_COMPILE}</compilecommand>
+      </compile>
+      <dbx_gdbdebugger version="1">
+        <gdb_pathmaps>
+        </gdb_pathmaps>
+        <gdb_interceptlist>
+          <gdbinterceptoptions gdb_all="false" gdb_unhandled="true" gdb_unexpected="true"/>
+        </gdb_interceptlist>
+        <gdb_options>
+          <DebugOptions>
+          </DebugOptions>
+        </gdb_options>
+        <gdb_buildfirst gdb_buildfirst_overriden="false" gdb_buildfirst_old="false"/>
+      </dbx_gdbdebugger>
+      <nativedebugger version="1">
+        <engine>gdb</engine>
+      </nativedebugger>
+      <runprofile version="9">
+        <runcommandpicklist>
+          <runcommandpicklistitem>"${OUTPUT_PATH}"</runcommandpicklistitem>
+        </runcommandpicklist>
+        <runcommand>"${OUTPUT_PATH}"</runcommand>
+        <rundir>.</rundir>
+        <buildfirst>false</buildfirst>
+        <terminal-type>0</terminal-type>
+        <remove-instrumentation>0</remove-instrumentation>
+        <environment>
+        </environment>
+      </runprofile>
+    </conf>
+  </confs>
+</configurationDescriptor>

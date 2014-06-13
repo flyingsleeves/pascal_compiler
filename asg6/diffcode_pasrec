@@ -1,0 +1,5 @@
+#!/bin/bash
+make clean
+make compiler
+compiler < pasrec.pas > code.s
+sdiff --width=170 code.s pasrec.s

@@ -1,0 +1,4 @@
+#!/bin/bash
+make clean
+make testtrivb
+sdiff --width=170 output.txt trivb.sample

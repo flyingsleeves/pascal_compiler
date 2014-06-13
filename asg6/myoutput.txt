@@ -1,0 +1,324 @@
+cons
+ token 6868048  ID            re  dtype  0  link 0
+ token 6868176  ID            im  dtype  0  link 0
+findtype
+ token 6868304  ID          real  dtype  0  link 0
+ 6844432        real knd 1 1  typ 0 lvl 0  siz     8  off     0 lnk 6844528
+instfields
+ token 6868048  ID            re  dtype  0  link 6868176
+ token 6868176  ID            im  dtype  0  link 0
+ token 6868304  ID          real  dtype  0  link 0
+findtype
+ token 6868304  ID          real  dtype  0  link 0
+ 6844432        real knd 1 1  typ 0 lvl 0  siz     8  off     0 lnk 6844528
+
+
+8
+
+cons
+ token 6869200  ID         white  dtype  0  link 0
+ token 6869328  ID          blue  dtype  0  link 0
+cons
+ token 6869072  ID           red  dtype  0  link 0
+ token 6869200  ID         white  dtype  0  link 6869328
+instconst
+ ID:
+ token 6869072  ID           red  dtype  0  link 6869200
+ CONSTANT:
+ token 6869456  OP                dtype  0  link 0  operands 0
+instconst
+ ID:
+ token 6869200  ID         white  dtype  0  link 6869328
+ CONSTANT:
+ token 6869456  OP             +  dtype  0  link 0  operands 0
+instconst
+ ID:
+ token 6869328  ID          blue  dtype  0  link 0
+ CONSTANT:
+ token 6869456  OP             -  dtype  0  link 0  operands 0
+instpoint
+findtype
+ token 6871056  ID       integer  dtype  0  link 0
+ 6844528     integer knd 1 0  typ 0 lvl 0  siz     4  off     0 lnk 6844624
+instfields
+ token 6870928  ID           age  dtype  0  link 0
+ token 6871056  ID       integer  dtype  0  link 0
+findtype
+ token 6871056  ID       integer  dtype  0  link 0
+ 6844528     integer knd 1 0  typ 0 lvl 0  siz     4  off     0 lnk 6844624
+findtype
+ token 6871408  ID            pp  dtype  0  link 0
+ 6870640          pp knd 8 0  typ 6870480 lvl 1  siz     8  off     0 lnk 0
+instfields
+ token 6871280  ID        friend  dtype  0  link 0
+ token 6871408  ID            pp  dtype  0  link 0
+findtype
+ token 6871408  ID            pp  dtype  0  link 0
+ 6870640          pp knd 8 0  typ 6870480 lvl 1  siz     8  off     0 lnk 0
+findtype
+ token 6871760  ID       complex  dtype  0  link 0
+ 6868784     complex knd 8 0  typ 6868624 lvl 1  siz    16  off     0 lnk 6869520
+instfields
+ token 6871632  ID      location  dtype  0  link 0
+ token 6871760  ID       complex  dtype  0  link 0
+findtype
+ token 6871760  ID       complex  dtype  0  link 0
+ 6868784     complex knd 8 0  typ 6868624 lvl 1  siz    16  off     0 lnk 6869520
+findtype
+ token 6872112  ID         color  dtype  0  link 0
+ 6870032       color knd 8 0  typ 6869872 lvl 1  siz     4  off     0 lnk 6870384
+instfields
+ token 6871984  ID      favorite  dtype  0  link 0
+ token 6872112  ID         color  dtype  0  link 0
+findtype
+ token 6872112  ID         color  dtype  0  link 0
+ 6870032       color knd 8 0  typ 6869872 lvl 1  siz     4  off     0 lnk 6870384
+findtype
+ token 6872464  ID          real  dtype  0  link 0
+ 6844432        real knd 1 1  typ 0 lvl 0  siz     8  off     0 lnk 6844528
+instfields
+ token 6872336  ID        salary  dtype  0  link 0
+ token 6872464  ID          real  dtype  0  link 0
+findtype
+ token 6872464  ID          real  dtype  0  link 0
+ 6844432        real knd 1 1  typ 0 lvl 0  siz     8  off     0 lnk 6844528
+nconc
+ LISTA:
+ token 6871984  ID      favorite  dtype  0  link 0
+ LISTB:
+ token 6872336  ID        salary  dtype  0  link 0
+nconc
+ LISTA:
+ token 6871632  ID      location  dtype  0  link 0
+ LISTB:
+ token 6871984  ID      favorite  dtype  0  link 6872336
+ token 6872336  ID        salary  dtype  0  link 0
+nconc
+ LISTA:
+ token 6871280  ID        friend  dtype  0  link 0
+ LISTB:
+ token 6871632  ID      location  dtype  0  link 6871984
+ token 6871984  ID      favorite  dtype  0  link 6872336
+ token 6872336  ID        salary  dtype  0  link 0
+nconc
+ LISTA:
+ token 6870928  ID           age  dtype  0  link 0
+ LISTB:
+ token 6871280  ID        friend  dtype  0  link 6871632
+ token 6871632  ID      location  dtype  0  link 6871984
+ token 6871984  ID      favorite  dtype  0  link 6872336
+ token 6872336  ID        salary  dtype  0  link 0
+
+
+4
+
+
+
+12
+
+
+
+28
+
+
+
+32
+
+cons
+ token 6872912  ID             c  dtype  0  link 0
+ token 6873040  ID             d  dtype  0  link 0
+findtype
+ token 6873168  ID       complex  dtype  0  link 0
+ 6868784     complex knd 8 0  typ 6868624 lvl 1  siz    16  off     0 lnk 6869520
+findtype
+ token 6873168  ID       complex  dtype  0  link 0
+ 6868784     complex knd 8 0  typ 6868624 lvl 1  siz    16  off     0 lnk 6869520
+instvars
+ 6868784     complex knd 8 0  typ 6868624 lvl 1  siz    16  off     0 lnk 6869520
+cons
+ token 6873488  ID             i  dtype  0  link 0
+ token 6873616  ID           sum  dtype  0  link 0
+findtype
+ token 6873744  ID       integer  dtype  0  link 0
+ 6844528     integer knd 1 0  typ 0 lvl 0  siz     4  off     0 lnk 6844624
+findtype
+ token 6873744  ID       integer  dtype  0  link 0
+ 6844528     integer knd 1 0  typ 0 lvl 0  siz     4  off     0 lnk 6844624
+instvars
+ 6844528     integer knd 1 0  typ 0 lvl 0  siz     4  off     0 lnk 6844624
+findtype
+ token 6874736  ID       complex  dtype  0  link 0
+ 6868784     complex knd 8 0  typ 6868624 lvl 1  siz    16  off     0 lnk 6869520
+findtype
+ token 6874736  ID       complex  dtype  0  link 0
+ 6868784     complex knd 8 0  typ 6868624 lvl 1  siz    16  off     0 lnk 6869520
+instvars
+ 6868784     complex knd 8 0  typ 6868624 lvl 1  siz    16  off     0 lnk 6869520
+findtype
+ token 6875568  ID         color  dtype  0  link 0
+ 6870032       color knd 8 0  typ 6869872 lvl 1  siz     4  off     0 lnk 6870384
+cons
+ token 6875280  typ  1  whic 287  dty   0  sty 6875408 lnk 0  opnds 0
+ token 6875568  ID         color  dtype  0  link 0
+findtype
+ token 6875760  ID         color  dtype  0  link 0
+ 6870032       color knd 8 0  typ 6869872 lvl 1  siz     4  off     0 lnk 6870384
+findtype
+ token 6875760  ID         color  dtype  0  link 0
+ 6870032       color knd 8 0  typ 6869872 lvl 1  siz     4  off     0 lnk 6870384
+instvars
+ 6870032       color knd 8 0  typ 6869872 lvl 1  siz     4  off     0 lnk 6870384
+cons
+ token 6876240  ID          fred  dtype  0  link 0
+ token 6876368  ID           ptr  dtype  0  link 0
+cons
+ token 6876112  ID          mary  dtype  0  link 0
+ token 6876240  ID          fred  dtype  0  link 6876368
+cons
+ token 6875984  ID          john  dtype  0  link 0
+ token 6876112  ID          mary  dtype  0  link 6876240
+findtype
+ token 6876496  ID            pp  dtype  0  link 0
+ 6870640          pp knd 8 0  typ 6870480 lvl 1  siz     8  off     0 lnk 6873296
+findtype
+ token 6876496  ID            pp  dtype  0  link 0
+ 6870640          pp knd 8 0  typ 6870480 lvl 1  siz     8  off     0 lnk 6873296
+instvars
+ 6870640          pp knd 8 0  typ 6870480 lvl 1  siz     8  off     0 lnk 6873296
+findtype
+ token 6877680  ID        person  dtype  0  link 0
+ 6870384      person knd 8 0  typ 6872688 lvl 1  siz    40  off     0 lnk 6870640
+findtype
+ token 6877680  ID        person  dtype  0  link 0
+ 6870384      person knd 8 0  typ 6872688 lvl 1  siz    40  off     0 lnk 6870640
+instvars
+ 6870384      person knd 8 0  typ 6872688 lvl 1  siz    40  off     0 lnk 6870640
+findid
+ token 6878096  ID          john  dtype  0  link 0
+makefuncall
+ token 6877968  ID           new  dtype  0  link 6878096
+ token 6878096  ID          john  dtype  0  link 0
+findid
+ token 6878416  ID          mary  dtype  0  link 0
+makefuncall
+ token 6878288  ID           new  dtype  0  link 6878416
+ token 6878416  ID          mary  dtype  0  link 0
+findid
+ token 6878736  ID          fred  dtype  0  link 0
+makefuncall
+ token 6878608  ID           new  dtype  0  link 6878736
+ token 6878736  ID          fred  dtype  0  link 0
+yyparse result =        1
+Symbol table level 0
+ 6844432        real  BASIC  basicdt   1          siz     8
+ 6844528     integer  BASIC  basicdt   0          siz     4
+ 6844624        char  BASIC  basicdt   2          siz     1
+ 6844720     boolean  BASIC  basicdt   3          siz     4
+ 6844816         exp  knd 5 0  typ 6844912  lvl  0  siz     0  off     0
+(FUNCTION real
+          real)
+ 6845104       trexp  knd 5 0  typ 6845200  lvl  0  siz     0  off     0
+(FUNCTION real
+          real)
+ 6845392         sin  knd 5 0  typ 6845488  lvl  0  siz     0  off     0
+(FUNCTION real
+          real)
+ 6845680         cos  knd 5 0  typ 6845776  lvl  0  siz     0  off     0
+(FUNCTION real
+          real)
+ 6845968       trsin  knd 5 0  typ 6846064  lvl  0  siz     0  off     0
+(FUNCTION real
+          real)
+ 6846256        sqrt  knd 5 0  typ 6846352  lvl  0  siz     0  off     0
+(FUNCTION real
+          real)
+ 6846544       round  knd 5 0  typ 6846640  lvl  0  siz     0  off     0
+(FUNCTION real
+          real)
+ 6846832      iround  knd 5 0  typ 6846928  lvl  0  siz     0  off     0
+(FUNCTION integer
+          real)
+ 6847120         ord  knd 5 0  typ 6847216  lvl  0  siz     0  off     0
+(FUNCTION integer
+          integer)
+ 6847408         new  knd 5 0  typ 6847504  lvl  0  siz     0  off     0
+(FUNCTION integer
+          integer)
+ 6847696       trnew  knd 5 0  typ 6847792  lvl  0  siz     0  off     0
+(FUNCTION integer
+          integer)
+ 6847984       write  knd 5 0  typ 6848080  lvl  0  siz     0  off     0
+(FUNCTION NULL
+          char)
+ 6848272     writeln  knd 5 0  typ 6848368  lvl  0  siz     0  off     0
+(FUNCTION NULL
+          char)
+ 6848560      writef  knd 5 0  typ 6848656  lvl  0  siz     0  off     0
+(FUNCTION NULL
+          real)
+ 6848848    writelnf  knd 5 0  typ 6848944  lvl  0  siz     0  off     0
+(FUNCTION NULL
+          real)
+ 6849136      writei  knd 5 0  typ 6849232  lvl  0  siz     0  off     0
+(FUNCTION NULL
+          integer)
+ 6849424    writelni  knd 5 0  typ 6849520  lvl  0  siz     0  off     0
+(FUNCTION NULL
+          integer)
+ 6849712        read  knd 5 0  typ 6849808  lvl  0  siz     0  off     0
+(FUNCTION NULL
+          NULL)
+ 6850000      readln  knd 5 0  typ 6850096  lvl  0  siz     0  off     0
+(FUNCTION NULL
+          NULL)
+ 6850288         eof  knd 5 0  typ 6850384  lvl  0  siz     0  off     0
+(FUNCTION boolean
+          NULL)
+Symbol table level 1
+ 6868784     complex  TYPE   typ 6868624  lvl  1  siz    16  off     0
+(RECORD (re real)
+        (im real))
+ 6869520         red  CONST  typ INTEGER  val  0
+ 6869616       white  CONST  typ INTEGER  val  1
+ 6869712        blue  CONST  typ INTEGER  val  2
+ 6870032       color  TYPE   typ 6869872  lvl  1  siz     4  off     0
+  0 ..   2
+ 6870384      person  TYPE   typ 6872688  lvl  1  siz    40  off     0
+(RECORD (age integer)
+        (friend (^ person))
+        (location (RECORD (re real)
+                          (im real)))
+        (favorite   0 ..   2)
+        (salary real))
+ 6870640          pp  TYPE   typ 6870480  lvl  1  siz     8  off     0
+(^ person)
+ 6873296           c  VAR    0 typ 6868784  lvl  1  siz    16  off     0
+(RECORD (re real)
+        (im real))
+ 6873392           d  VAR    0 typ 6868784  lvl  1  siz    16  off    16
+(RECORD (re real)
+        (im real))
+ 6873872           i  VAR    0 typ integer  lvl  1  siz     4  off    32
+ 6873968         sum  VAR    0 typ integer  lvl  1  siz     4  off    36
+ 6874864          ac  VAR    0 typ 6868784  lvl  1  siz    16  off    40
+(RECORD (re real)
+        (im real))
+ 6875888         aco  VAR    0 typ 6870032  lvl  1  siz     4  off    56
+  0 ..   2
+ 6876624        john  VAR    0 typ 6870640  lvl  1  siz     8  off    64
+(^ person)
+ 6876720        mary  VAR    0 typ 6870640  lvl  1  siz     8  off    72
+(^ person)
+ 6876816        fred  VAR    0 typ 6870640  lvl  1  siz     8  off    80
+(^ person)
+ 6876912         ptr  VAR    0 typ 6870640  lvl  1  siz     8  off    88
+(^ person)
+ 6877808      people  VAR    0 typ 6870384  lvl  1  siz    40  off    96
+(RECORD (age integer)
+        (friend (^ person))
+        (location (RECORD (re real)
+                          (im real)))
+        (favorite   0 ..   2)
+        (salary real))
+ token 0  NULL
+ppexpr called with bad pointer 0

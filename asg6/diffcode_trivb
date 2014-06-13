@@ -1,0 +1,5 @@
+#!/bin/bash
+make clean
+make compiler
+compiler < trivb.pas > code.s
+sdiff --width=170 code.s trivb.s

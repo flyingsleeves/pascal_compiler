@@ -1,0 +1,5 @@
+#!/bin/bash
+make clean
+make compiler
+compiler < graph1.pas > code.s
+sdiff --width=170 code.s graph1.s
